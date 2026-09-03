@@ -14,6 +14,7 @@ import {
 
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
+import LogoLoader from "./components/LogoLoader";
 
 function ProtectedRoute({ children }) {
   return (
@@ -66,6 +67,9 @@ function Dashboard() {
 function App() {
   return (
     <BrowserRouter>
+
+      {/* LOGO LOADER */}
+      <LogoLoader />
 
       <Routes>
 
