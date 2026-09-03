@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 
-function LogoLoader() {
+function LogoLoader({ onComplete }) {
+  
   return (
     <motion.div
       className="
@@ -17,11 +18,9 @@ function LogoLoader() {
         duration: 0.8,
         ease: "easeInOut",
       }}
+      onAnimationComplete={onComplete}
     >
-      {/* =====================================================
-          MAIN RESPONSIVE CONTAINER
-      ====================================================== */}
-
+      {/* MAIN CONTAINER */}
       <motion.div
         className="
           relative
@@ -36,10 +35,7 @@ function LogoLoader() {
           ease: "easeInOut",
         }}
       >
-        {/* =====================================================
-            LEFT CLOUD
-        ====================================================== */}
-
+        {/* LEFT CLOUD */}
         <motion.img
           src="/loginLoaderImg/cloud.png"
           alt=""
@@ -50,14 +46,8 @@ function LogoLoader() {
             z-10
             w-[29.5%]
           "
-          initial={{
-            opacity: 0,
-            x: -60,
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-          }}
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{
             delay: 0.2,
             duration: 0.9,
@@ -65,10 +55,7 @@ function LogoLoader() {
           }}
         />
 
-        {/* =====================================================
-            SECOND LEFT CLOUD
-        ====================================================== */}
-
+        {/* SECOND LEFT CLOUD */}
         <motion.img
           src="/loginLoaderImg/cloud.png"
           alt=""
@@ -79,14 +66,8 @@ function LogoLoader() {
             z-20
             w-[25.8%]
           "
-          initial={{
-            opacity: 0,
-            x: -50,
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-          }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{
             delay: 0.45,
             duration: 0.9,
@@ -94,10 +75,7 @@ function LogoLoader() {
           }}
         />
 
-        {/* =====================================================
-            SUN + CLOUD
-        ====================================================== */}
-
+        {/* SUN + CLOUD */}
         <motion.img
           src="/loginLoaderImg/suncloud.png"
           alt=""
@@ -108,14 +86,8 @@ function LogoLoader() {
             z-10
             w-[24.7%]
           "
-          initial={{
-            opacity: 0,
-            x: 60,
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-          }}
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{
             delay: 0.35,
             duration: 1,
@@ -123,10 +95,7 @@ function LogoLoader() {
           }}
         />
 
-        {/* =====================================================
-            CLOUD OVER SUN
-        ====================================================== */}
-
+        {/* CLOUD OVER SUN */}
         <motion.img
           src="/loginLoaderImg/cloud.png"
           alt=""
@@ -137,14 +106,8 @@ function LogoLoader() {
             z-20
             w-[29.2%]
           "
-          initial={{
-            opacity: 0,
-            x: 50,
-          }}
-          animate={{
-            opacity: 1,
-            x: 0,
-          }}
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{
             delay: 0.65,
             duration: 0.8,
@@ -152,10 +115,7 @@ function LogoLoader() {
           }}
         />
 
-        {/* =====================================================
-            BIRDS - RIGHT
-        ====================================================== */}
-
+        {/* BIRDS RIGHT */}
         <motion.img
           src="/loginLoaderImg/birds.png"
           alt=""
@@ -166,14 +126,8 @@ function LogoLoader() {
             z-50
             w-[15.9%]
           "
-          initial={{
-            opacity: 0,
-            y: -15,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
+          initial={{ opacity: 0, y: -15 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{
             delay: 0.8,
             duration: 0.8,
@@ -181,10 +135,7 @@ function LogoLoader() {
           }}
         />
 
-        {/* =====================================================
-            BIRDS - LEFT
-        ====================================================== */}
-
+        {/* BIRDS LEFT */}
         <motion.img
           src="/loginLoaderImg/birds.png"
           alt=""
@@ -195,14 +146,8 @@ function LogoLoader() {
             z-50
             w-[9.4%]
           "
-          initial={{
-            opacity: 0,
-            y: -12,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{
             delay: 1,
             duration: 0.7,
@@ -210,10 +155,7 @@ function LogoLoader() {
           }}
         />
 
-        {/* =====================================================
-            TOWER
-        ====================================================== */}
-
+        {/* TOWER */}
         <motion.img
           src="/loginLoaderImg/tower.png"
           alt=""
@@ -242,11 +184,7 @@ function LogoLoader() {
           }}
         />
 
-        {/* =====================================================
-            SIGNAL WAVES
-            POSITIONED DIRECTLY ABOVE TOWER
-        ====================================================== */}
-
+        {/* SIGNAL WAVES */}
         <div
           className="
             absolute
@@ -259,8 +197,7 @@ function LogoLoader() {
             pointer-events-none
           "
         >
-          {/* CENTER DOT */}
-
+          {/* DOT */}
           <motion.div
             className="
               absolute
@@ -287,7 +224,6 @@ function LogoLoader() {
           />
 
           {/* WAVE 1 */}
-
           <motion.div
             className="
               absolute
@@ -317,7 +253,6 @@ function LogoLoader() {
           />
 
           {/* WAVE 2 */}
-
           <motion.div
             className="
               absolute
@@ -347,7 +282,6 @@ function LogoLoader() {
           />
 
           {/* WAVE 3 */}
-
           <motion.div
             className="
               absolute
@@ -377,8 +311,17 @@ function LogoLoader() {
           />
         </div>
 
+        {/* BIG ARC */}
         <svg
-          className="absolute left-1/2 top-[-5%] z-40 w-[70%] -translate-x-1/2 overflow-visible"
+          className="
+            absolute
+            left-1/2
+            top-[-5%]
+            z-40
+            w-[70%]
+            -translate-x-1/2
+            overflow-visible
+          "
           viewBox="0 0 200 100"
         >
           <motion.path
@@ -397,10 +340,7 @@ function LogoLoader() {
           />
         </svg>
 
-        {/* =====================================================
-            SMALL GOLD DETAIL
-        ====================================================== */}
-
+        {/* GOLD DETAIL */}
         <motion.div
           className="
             absolute
@@ -427,10 +367,7 @@ function LogoLoader() {
           }}
         />
 
-        {/* =====================================================
-            AKASHVANI WORDMARK
-        ====================================================== */}
-
+        {/* AKASHVANI WORDMARK */}
         <div
           className="
             absolute
@@ -446,12 +383,8 @@ function LogoLoader() {
             src="/loginLoaderImg/akashvani.png"
             alt="आकाशVANI"
             className="w-full"
-            initial={{
-              x: "-105%",
-            }}
-            animate={{
-              x: "0%",
-            }}
+            initial={{ x: "-105%" }}
+            animate={{ x: "0%" }}
             transition={{
               delay: 2.2,
               duration: 1.1,
@@ -460,10 +393,7 @@ function LogoLoader() {
           />
         </div>
 
-        {/* =====================================================
-            TAGLINE
-        ====================================================== */}
-
+        {/* TAGLINE */}
         <motion.img
           src="/loginLoaderImg/thevoiceofthesky.png"
           alt="The Voice of the Sky"
@@ -487,6 +417,8 @@ function LogoLoader() {
             ease: "easeInOut",
           }}
         />
+
+        {/* UNDERLINE */}
         <motion.img
           src="/loginLoaderImg/underline.png"
           alt=""

@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   Navigate,
+  useNavigate,
 } from "react-router-dom";
 
 import {
@@ -16,12 +17,32 @@ import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
 import LogoLoader from "./components/LogoLoader";
 
+
+// ===============================
+// LOADER PAGE
+// ===============================
+
+function LoaderPage() {
+  const navigate = useNavigate();
+
+  return (
+    <LogoLoader
+      onComplete={() => {
+        navigate("/login", { replace: true });
+      }}
+    />
+  );
+}
+
+
+// ===============================
+// PROTECTED ROUTE
+// ===============================
+
 function ProtectedRoute({ children }) {
   return (
     <>
-      <SignedIn>
-        {children}
-      </SignedIn>
+      <SignedIn>{children}</SignedIn>
 
       <SignedOut>
         <RedirectToSignIn />
@@ -29,6 +50,11 @@ function ProtectedRoute({ children }) {
     </>
   );
 }
+
+
+// ===============================
+// DASHBOARD
+// ===============================
 
 function Dashboard() {
   return (
@@ -64,30 +90,36 @@ function Dashboard() {
   );
 }
 
+
+// ===============================
+// APP
+// ===============================
+
 function App() {
   return (
     <BrowserRouter>
 
-      {/* LOGO LOADER */}
-      <LogoLoader />
-
       <Routes>
 
+        {/* FIRST PAGE */}
         <Route
           path="/"
-          element={<Navigate to="/login" replace />}
+          element={<LoaderPage />}
         />
 
+        {/* LOGIN */}
         <Route
           path="/login/*"
           element={<Login />}
         />
 
+        {/* SIGNUP */}
         <Route
           path="/signup/*"
           element={<Signup />}
         />
 
+        {/* DASHBOARD */}
         <Route
           path="/dashboard"
           element={
@@ -97,9 +129,10 @@ function App() {
           }
         />
 
+        {/* FALLBACK */}
         <Route
           path="*"
-          element={<Navigate to="/login" replace />}
+          element={<Navigate to="/" replace />}
         />
 
       </Routes>
