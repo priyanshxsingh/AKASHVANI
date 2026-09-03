@@ -471,8 +471,6 @@ function Login() {
                     height: "50px",
 
                     borderRadius: "11px",
-
-                    backdropFilter: "blur(8px)",
                   },
 
                   /* Login button */
