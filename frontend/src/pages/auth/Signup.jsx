@@ -90,24 +90,27 @@ function Signup() {
                   absolute
                   left-1/2
                   top-1/2
-                  h-[90%]
-                  w-[90%]
+                  h-[95%]
+                  w-[95%]
                   -translate-x-1/2
                   -translate-y-1/2
                   rounded-full
-                  bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.9)_0%,rgba(240,248,255,0.6)_25%,rgba(190,220,250,0.3)_48%,transparent_72%)]
+                  bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.8)_30%,rgba(190,220,250,0.4)_55%,transparent_75%)]
                   blur-[35px]
                 "
               />
 
               <img 
-              src="../public/akashvani-logo.png" 
+              src="/akashvani-logo-transparent.png" 
+              alt="AKASHVANI"
               className="
                   relative
                   z-10
                   mx-auto
                   block
                   w-[95%]
+                  contrast-125
+                  brightness-75
                   drop-shadow-[0_10px_25px_rgba(0,0,0,0.3)]
                 "
               />

@@ -149,20 +149,20 @@ function Login() {
       absolute
       left-1/2
       top-1/2
-      h-[55%]
-      w-[65%]
+      h-[75%]
+      w-[90%]
       -translate-x-1/2
       -translate-y-1/2
       rounded-full
-      bg-[radial-gradient(ellipse,rgba(255,255,255,0.65)_0%,rgba(255,255,255,0.25)_45%,transparent_75%)]
-      blur-[25px]
+      bg-[radial-gradient(ellipse,rgba(255,255,255,0.9)_0%,rgba(255,255,255,0.5)_40%,transparent_75%)]
+      blur-[35px]
     "
               />
 
               {/* Logo */}
 
               <img
-                src="/akashvani-logo.png"
+                src="/akashvani-logo-transparent.png"
                 alt="AKASHVANI"
                 className="
       relative
@@ -171,6 +171,8 @@ function Login() {
       block
       w-[95%]
       object-contain
+      contrast-125
+      brightness-75
       drop-shadow-[0_10px_25px_rgba(0,0,0,0.35)]
     "
               />
