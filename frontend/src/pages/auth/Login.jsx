@@ -15,18 +15,16 @@ function Login() {
           bg-cover
           bg-center
           scale-[1.03]
+       
         "
       />
 
-      {/* Dark atmospheric overlay */}
-
+      {/* Light atmospheric fade overlay */}
       <div
         className="
           absolute inset-0
-          bg-gradient-to-r
-          from-[#030d19]/20
-          via-[#030d19]/35
-          to-[#030d19]/80
+          bg-white/18
+         
         "
       />
 

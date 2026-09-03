@@ -16,14 +16,12 @@ function Signup() {
         "
       />
 
-      {/* Dark Overlay */}
+      {/* Light atmospheric fade overlay */}
       <div
         className="
           absolute inset-0
-          bg-gradient-to-r
-          from-[#030d19]/20
-          via-[#030d19]/35
-          to-[#030d19]/80
+          bg-white/15
+        
         "
       />
 
