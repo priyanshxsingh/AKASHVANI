@@ -25,6 +25,56 @@ function Signup() {
         "
       />
 
+      {/* ================================
+          MOBILE TOP NAV
+      ================================= */}
+      <div
+        className="
+          absolute
+          top-6
+          left-1/2
+          -translate-x-1/2
+          w-[92%]
+          max-w-[420px]
+          lg:hidden
+          flex
+          items-center
+          justify-start
+          px-5
+          py-3
+          rounded-[24px]
+          bg-gradient-to-br
+          from-[#1b2b3a]/60
+          to-[#05101b]/50
+          backdrop-blur-xl
+          border
+          border-white/10
+          shadow-[0_30px_80px_rgba(0,0,0,0.48)]
+          z-50
+        "
+      >
+        <img
+          src="/akashvani-logo.png"
+          alt="AKASHVANI"
+          className="
+            h-9
+            w-9
+            sm:h-10
+            sm:w-10
+            rounded-full
+            object-cover
+            flex-shrink-0
+            shadow-md
+          "
+        />
+        <div className="ml-3 sm:ml-4 flex flex-col justify-center">
+          <span className="text-white text-[15px] sm:text-base font-bold tracking-widest leading-none">AKASHVANI</span>
+          <span className="text-[#d2a565] text-[9px] sm:text-[10px] tracking-[0.2em] uppercase font-medium mt-1">The Voice Of The Sky</span>
+        </div>
+        
+
+      </div>
+
       {/* Main Content */}
       <div
         className="
@@ -39,8 +89,10 @@ function Signup() {
           px-3
           sm:px-6
           lg:px-[6vw]
-          py-10
-          lg:py-6
+          pt-[110px]
+          pb-8
+          lg:pt-6
+          lg:pb-6
         "
       >
 
@@ -48,7 +100,7 @@ function Signup() {
             LEFT SIDE
         ====================================== */}
 
-        <section className="flex w-full min-w-0 min-h-full items-center justify-center">
+        <section className="hidden lg:flex w-full min-w-0 min-h-full items-center justify-center">
 
           <div className="w-full max-w-2xl text-center">
 
@@ -145,7 +197,8 @@ function Signup() {
                 text-sm
                 font-semibold
                 leading-relaxed
-                text-slate-50
+                text-black
+                lg:text-slate-50
                 sm:text-[15px]
               "
             >
@@ -160,7 +213,8 @@ function Signup() {
               className="
                 mt-6
                 lg:mt-8
-                inline-flex
+                hidden
+                lg:inline-flex
                 flex-wrap
                 lg:flex-nowrap
                 items-start
