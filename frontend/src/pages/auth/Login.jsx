@@ -261,25 +261,27 @@ function Login() {
             justify-center
           "
         >
-          <div
-            className="
-              w-full
-              max-w-[475px]
-              rounded-[27px]
-              border
-              border-white/20
-              bg-gradient-to-br
-              from-[#1b2b3a]/60
-              to-[#05101b]/50
-              p-6
-              shadow-[0_30px_80px_rgba(0,0,0,0.48)]
-              backdrop-blur-xl
-              sm:p-8
-            "
-          >
-            {/* =================================
-                LOGIN HEADING
-            ================================= */}
+          {/* Outer Thin Border Frame */}
+          <div className="w-full max-w-[500px] rounded-[34px] border border-[#d2a565]/40 p-2 sm:p-3 shadow-[0_0_20px_rgba(210,165,101,0.15)]">
+            {/* Inner Glass Container */}
+            <div
+              className="
+                w-full
+                rounded-[26px]
+                border
+                border-white/10
+                bg-gradient-to-br
+                from-[#1b2b3a]/60
+                to-[#05101b]/50
+                p-6
+                shadow-[0_30px_80px_rgba(0,0,0,0.48)]
+                backdrop-blur-xl
+                sm:p-8
+              "
+            >
+              {/* =================================
+                  LOGIN HEADING
+              ================================= */}
 
             <div className="mb-5 text-center">
               <p
@@ -484,6 +486,7 @@ function Login() {
                 },
               }}
             />
+          </div>
           </div>
         </section>
       </div>
