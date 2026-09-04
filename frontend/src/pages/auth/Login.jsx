@@ -42,10 +42,11 @@ function Login() {
           items-center
           gap-8
           lg:gap-14
-          px-4
-          sm:px-8
+          px-3
+          sm:px-6
           lg:px-[6vw]
-          py-6
+          py-10
+          lg:py-6
         "
       >
         {/* =================================
@@ -55,6 +56,8 @@ function Login() {
         <section
           className="
             flex
+            w-full
+            min-w-0
             min-h-full
             items-center
             justify-center
@@ -70,26 +73,38 @@ function Login() {
             {/* Top Badge */}
             <div
               className="
-                absolute
-                top-10
-                left-10
+                relative
+                lg:absolute
+                top-0
+                lg:top-10
+                left-0
+                lg:left-10
+                mb-6
+                lg:mb-0
+                mx-auto
                 inline-flex
                 items-center
-                gap-2
+                justify-center
+                gap-1.5
+                lg:gap-2
                 rounded-full
                 border
                 border-[#d2a565]/50
                 bg-black/40
-                px-4
-                py-1.5
-                text-[15px]
+                px-3
+                lg:px-4
+                py-1
+                lg:py-1.5
+                text-[11px]
+                sm:text-[13px]
+                lg:text-[15px]
                 font-semibold
                 tracking-widest
                 text-[#d2a565]
                 backdrop-blur-md
               "
             >
-              <CloudRain size={16} />
+              <CloudRain size={16} className="w-3.5 h-3.5 sm:w-4 sm:h-4 lg:w-4 lg:h-4" />
               <span>INTELLIGENT WEATHER SYSTEM</span>
             </div>
 
@@ -104,7 +119,9 @@ function Login() {
     mt-4
     flex
     w-full
-    max-w-[650px]
+    max-w-[280px]
+    sm:max-w-[400px]
+    lg:max-w-[650px]
     items-center
     justify-center
   "
@@ -183,9 +200,12 @@ function Login() {
             {/* Description */}
             <p
               className="
-                -mt-4
+                mt-2
+                lg:-mt-24
                 mx-auto
-                max-w-lg
+                max-w-[90%]
+                sm:max-w-md
+                lg:max-w-lg
                 text-sm
                 font-semibold
                 leading-relaxed
@@ -202,17 +222,23 @@ function Login() {
             ================================= */}
             <div
               className="
-                mt-8
+                mt-6
+                lg:mt-8
                 inline-flex
+                flex-wrap
+                lg:flex-nowrap
                 items-start
                 justify-center
-                gap-6
+                gap-4
+                lg:gap-6
                 rounded-2xl
                 border
                 border-white/10
                 bg-white/5
-                px-8
-                py-6
+                px-4
+                sm:px-8
+                py-4
+                sm:py-6
                 shadow-[0_8px_32px_rgba(0,0,0,0.3)]
                 backdrop-blur-md
                 sm:gap-10
@@ -220,30 +246,30 @@ function Login() {
             >
               {/* Feature 1 */}
               <div className="flex flex-col items-center text-center">
-                <RadioTower size={34} className="text-[#d2a565] mb-4" strokeWidth={1.5} />
-                <h4 className="text-[13.5px] font-medium text-slate-100 leading-snug tracking-wide">
+                <RadioTower size={34} className="w-6 h-6 sm:w-8 sm:h-8 lg:w-[34px] lg:h-[34px] text-[#d2a565] mb-2 lg:mb-4" strokeWidth={1.5} />
+                <h4 className="text-[11px] sm:text-[13.5px] font-medium text-slate-100 leading-snug tracking-wide">
                   Real-Time<br />Intelligence
                 </h4>
               </div>
 
               {/* Separator */}
-              <div className="mt-5 h-[3px] w-[3px] rounded-full bg-[#d2a565]/80" />
+              <div className="mt-4 lg:mt-5 h-[3px] w-[3px] rounded-full bg-[#d2a565]/80" />
 
               {/* Feature 2 */}
               <div className="flex flex-col items-center text-center">
-                <ShieldCheck size={34} className="text-[#d2a565] mb-4" strokeWidth={1.5} />
-                <h4 className="text-[13.5px] font-medium text-slate-100 leading-snug tracking-wide">
+                <ShieldCheck size={34} className="w-6 h-6 sm:w-8 sm:h-8 lg:w-[34px] lg:h-[34px] text-[#d2a565] mb-2 lg:mb-4" strokeWidth={1.5} />
+                <h4 className="text-[11px] sm:text-[13.5px] font-medium text-slate-100 leading-snug tracking-wide">
                   Early Warning<br />System
                 </h4>
               </div>
 
               {/* Separator */}
-              <div className="mt-5 h-[3px] w-[3px] rounded-full bg-[#d2a565]/80" />
+              <div className="mt-4 lg:mt-5 h-[3px] w-[3px] rounded-full bg-[#d2a565]/80" />
 
               {/* Feature 3 */}
               <div className="flex flex-col items-center text-center">
-                <Cloud size={34} className="text-[#d2a565] mb-4" strokeWidth={1.5} />
-                <h4 className="text-[13.5px] font-medium text-slate-100 leading-snug tracking-wide">
+                <Cloud size={34} className="w-6 h-6 sm:w-8 sm:h-8 lg:w-[34px] lg:h-[34px] text-[#d2a565] mb-2 lg:mb-4" strokeWidth={1.5} />
+                <h4 className="text-[11px] sm:text-[13.5px] font-medium text-slate-100 leading-snug tracking-wide">
                   Atmospheric<br />Insights
                 </h4>
               </div>
@@ -258,11 +284,13 @@ function Login() {
         <section
           className="
             flex
+            w-full
+            min-w-0
             justify-center
           "
         >
           {/* Outer Thin Border Frame */}
-          <div className="w-full max-w-[500px] rounded-[34px] border-2 border-[#d2a565]/40 p-2 sm:p-3 shadow-[0_0_20px_rgba(210,165,101,0.15)]">
+          <div className="w-full mx-auto max-w-[500px] rounded-[34px] border-2 border-[#d2a565]/40 p-1.5 sm:p-3 shadow-[0_0_20px_rgba(210,165,101,0.15)]">
             {/* Inner Glass Container */}
             <div
               className="
@@ -273,7 +301,7 @@ function Login() {
                 bg-gradient-to-br
                 from-[#1b2b3a]/60
                 to-[#05101b]/50
-                p-6
+                p-5
                 shadow-[0_30px_80px_rgba(0,0,0,0.48)]
                 backdrop-blur-xl
                 sm:p-8
@@ -351,6 +379,9 @@ function Login() {
 
                 elements: {
                   /* Main Clerk container */
+                  rootBox: {
+                    width: "100%",
+                  },
 
                   card: {
                     background: "transparent",
@@ -360,6 +391,8 @@ function Login() {
                     border: "none",
 
                     width: "100%",
+
+                    maxWidth: "100%",
 
                     padding: "0",
                   },

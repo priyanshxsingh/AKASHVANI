@@ -27,3 +27,16 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
   caret-color: white !important;
 }
+
+/* Fix Clerk responsive overflow on mobile */
+.cl-rootBox, 
+.cl-cardBox, 
+.cl-card, 
+.cl-main, 
+.cl-form,
+.cl-socialButtons {
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
