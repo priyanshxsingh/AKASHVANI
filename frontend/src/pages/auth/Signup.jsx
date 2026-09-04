@@ -205,11 +205,11 @@ function Signup() {
               border
               border-white/20
               bg-gradient-to-br
-              from-[#1b2b3a]/75
-              to-[#05101b]/65
+              from-[#1b2b3a]/40
+              to-[#05101b]/30
               p-6
               shadow-[0_30px_80px_rgba(0,0,0,0.48)]
-              backdrop-blur-2xl
+              backdrop-blur-xl
               sm:p-8
             "
           >
