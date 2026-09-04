@@ -269,8 +269,8 @@ function Login() {
               border
               border-white/20
               bg-gradient-to-br
-              from-[#1b2b3a]/40
-              to-[#05101b]/30
+              from-[#1b2b3a]/60
+              to-[#05101b]/50
               p-6
               shadow-[0_30px_80px_rgba(0,0,0,0.48)]
               backdrop-blur-xl
