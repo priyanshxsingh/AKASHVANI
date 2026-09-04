@@ -387,7 +387,7 @@ function Login() {
                   sm:text-[31px]
                 "
               >
-                Welcome <span className="text-[#d2a565]">Back</span>
+                Sign in to <span className="text-[#d2a565]">AKASHVANI</span>
               </h1>
 
               <p
@@ -439,17 +439,13 @@ function Login() {
                   },
 
                   card: {
-                    background: "transparent",
-
-                    boxShadow: "none",
-
-                    border: "none",
-
+                    background: "rgba(255, 255, 255, 0.02)",
+                    boxShadow: "inset 0 1px 0 0 rgba(255, 255, 255, 0.05)",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
                     width: "100%",
-
                     maxWidth: "100%",
-
-                    padding: "0",
+                    padding: "1.5rem",
+                    borderRadius: "20px",
                   },
 
                   /* Remove Clerk heading */

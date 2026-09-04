@@ -370,12 +370,13 @@ function Signup() {
                     width: "100%",
                   },
                   card: {
-                    background: "transparent",
-                    boxShadow: "none",
-                    border: "none",
+                    background: "rgba(255, 255, 255, 0.02)",
+                    boxShadow: "inset 0 1px 0 0 rgba(255, 255, 255, 0.05)",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
                     width: "100%",
                     maxWidth: "100%",
-                    padding: "0",
+                    padding: "1.5rem",
+                    borderRadius: "20px",
                   },
 
                   headerTitle: {
