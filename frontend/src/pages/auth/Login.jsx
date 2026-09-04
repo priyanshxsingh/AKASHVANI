@@ -1,5 +1,5 @@
 import { SignIn } from "@clerk/clerk-react";
-import { CloudRain, ShieldCheck } from "lucide-react";
+import { CloudRain, ShieldCheck, Cloud, RadioTower } from "lucide-react";
 
 function Login() {
   return (
@@ -23,7 +23,7 @@ function Login() {
       <div
         className="
           absolute inset-0
-          bg-white/18
+          bg-white/15
          
         "
       />
@@ -67,28 +67,29 @@ function Login() {
               text-center
             "
           >
-            {/* Badge */}
-
+            {/* Top Badge */}
             <div
               className="
+                absolute
+                top-10
+                left-10
                 inline-flex
                 items-center
                 gap-2
                 rounded-full
                 border
-                border-white/20
-                bg-white/[0.07]
+                border-[#d2a565]/50
+                bg-black/40
                 px-4
-                py-2
-                text-[10px]
+                py-1.5
+                text-[15px]
                 font-semibold
-                tracking-[0.18em]
-                text-blue-100/80
-                backdrop-blur-xl
+                tracking-widest
+                text-[#d2a565]
+                backdrop-blur-md
               "
             >
               <CloudRain size={16} />
-
               <span>INTELLIGENT WEATHER SYSTEM</span>
             </div>
 
@@ -178,132 +179,74 @@ function Login() {
               />
             </div>
 
-            {/* Description */}
 
+            {/* Description */}
             <p
               className="
+                -mt-4
                 mx-auto
-                mt-1
                 max-w-lg
                 text-sm
-                leading-7
-                text-slate-200/85
+                font-semibold
+                leading-relaxed
+                text-slate-50
                 sm:text-[15px]
               "
             >
-              Your intelligent companion for weather information, early warnings
-              and atmospheric insights.
+              Your intelligent companion for weather information,<br className="hidden sm:block" />
+              early warnings and atmospheric insights.
             </p>
 
             {/* =================================
                 FEATURES
             ================================= */}
-
             <div
               className="
-                mt-7
-                flex
+                mt-8
+                inline-flex
+                items-start
                 justify-center
-                gap-8
+                gap-6
+                rounded-2xl
+                border
+                border-white/10
+                bg-white/5
+                px-8
+                py-6
+                shadow-[0_8px_32px_rgba(0,0,0,0.3)]
+                backdrop-blur-md
+                sm:gap-10
               "
             >
-              {/* Real-time */}
-
-              <div
-                className="
-                  flex
-                  items-center
-                  gap-3
-                  text-left
-                "
-              >
-                <div
-                  className="
-                    flex
-                    h-10
-                    w-10
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-xl
-                    border
-                    border-blue-300/20
-                    bg-blue-400/10
-                    text-blue-300
-                  "
-                >
-                  <CloudRain size={19} />
-                </div>
-
-                <div>
-                  <h4 className="text-xs font-semibold">
-                    Real-Time Intelligence
-                  </h4>
-
-                  <p className="mt-1 text-[10px] text-slate-300/70">
-                    Live weather conditions
-                  </p>
-                </div>
+              {/* Feature 1 */}
+              <div className="flex flex-col items-center text-center">
+                <RadioTower size={34} className="text-[#d2a565] mb-4" strokeWidth={1.5} />
+                <h4 className="text-[13.5px] font-medium text-slate-100 leading-snug tracking-wide">
+                  Real-Time<br />Intelligence
+                </h4>
               </div>
 
-              {/* Early warning */}
+              {/* Separator */}
+              <div className="mt-5 h-[3px] w-[3px] rounded-full bg-[#d2a565]/80" />
 
-              <div
-                className="
-                  flex
-                  items-center
-                  gap-3
-                  text-left
-                "
-              >
-                <div
-                  className="
-                    flex
-                    h-10
-                    w-10
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-xl
-                    border
-                    border-blue-300/20
-                    bg-blue-400/10
-                    text-blue-300
-                  "
-                >
-                  <ShieldCheck size={19} />
-                </div>
-
-                <div>
-                  <h4 className="text-xs font-semibold">
-                    Early Warning System
-                  </h4>
-
-                  <p className="mt-1 text-[10px] text-slate-300/70">
-                    Critical alerts in time
-                  </p>
-                </div>
+              {/* Feature 2 */}
+              <div className="flex flex-col items-center text-center">
+                <ShieldCheck size={34} className="text-[#d2a565] mb-4" strokeWidth={1.5} />
+                <h4 className="text-[13.5px] font-medium text-slate-100 leading-snug tracking-wide">
+                  Early Warning<br />System
+                </h4>
               </div>
-            </div>
 
-            {/* Tagline */}
+              {/* Separator */}
+              <div className="mt-5 h-[3px] w-[3px] rounded-full bg-[#d2a565]/80" />
 
-            <div
-              className="
-                mt-7
-                flex
-                items-center
-                justify-center
-                gap-3
-                font-serif
-                text-[10px]
-                tracking-[0.4em]
-                text-white/70
-              "
-            >
-              <span className="text-[#d1aa70]">•</span>
-              THE VOICE OF THE SKY
-              <span className="text-[#d1aa70]">•</span>
+              {/* Feature 3 */}
+              <div className="flex flex-col items-center text-center">
+                <Cloud size={34} className="text-[#d2a565] mb-4" strokeWidth={1.5} />
+                <h4 className="text-[13.5px] font-medium text-slate-100 leading-snug tracking-wide">
+                  Atmospheric<br />Insights
+                </h4>
+              </div>
             </div>
           </div>
         </section>
