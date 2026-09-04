@@ -262,7 +262,7 @@ function Login() {
           "
         >
           {/* Outer Thin Border Frame */}
-          <div className="w-full max-w-[500px] rounded-[34px] border border-[#d2a565]/40 p-2 sm:p-3 shadow-[0_0_20px_rgba(210,165,101,0.15)]">
+          <div className="w-full max-w-[500px] rounded-[34px] border-2 border-[#d2a565]/40 p-2 sm:p-3 shadow-[0_0_20px_rgba(210,165,101,0.15)]">
             {/* Inner Glass Container */}
             <div
               className="
