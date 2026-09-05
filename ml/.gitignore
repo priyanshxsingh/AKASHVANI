@@ -1,0 +1,33 @@
+# Virtual environments
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python build files
+build/
+dist/
+*.egg-info/
+
+# Environment variables
+.env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+
+# Keep the trained ML model
+!model/
+!model/*.joblib

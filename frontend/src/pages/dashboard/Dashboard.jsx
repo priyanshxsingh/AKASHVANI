@@ -1,76 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StationCard from "../../components/dashboard/StationCard";
 import StatCard from "../../components/dashboard/StatCard";
 import DashboardHeader from "../../components/dashboard/DashboardHeader";
-
-const stations = [
-  {
-    city: "Guwahati",
-    state: "Assam",
-    rainfall: 88.5,
-    nwp: 82.0,
-    probability: 100,
-    population: 45000,
-    priority: 1,
-    corridor: "Elevated bypass corridor",
-    equipment: "Heavy waterlogging equipment",
-  },
-  {
-    city: "Patna",
-    state: "Bihar",
-    rainfall: 72.1,
-    nwp: 65.0,
-    probability: 98.58,
-    population: 62000,
-    priority: 1,
-    corridor: "Elevated bypass corridor",
-    equipment: "Heavy waterlogging equipment",
-  },
-  {
-    city: "Kolkata",
-    state: "West Bengal",
-    rainfall: 45.0,
-    nwp: 42.0,
-    probability: 99.93,
-    population: 38000,
-    priority: 2,
-    corridor: "Passable with high-clearance vehicles",
-    equipment: "Standby on trailer",
-  },
-  {
-    city: "Cuttack",
-    state: "Odisha",
-    rainfall: 12.5,
-    nwp: 5.0,
-    probability: 8.24,
-    population: 15000,
-    priority: 3,
-    corridor: "Normal transit authorized",
-    equipment: "Not required",
-  },
-  {
-    city: "Dibrugarh",
-    state: "Assam",
-    rainfall: 94.2,
-    nwp: 91.0,
-    probability: 97.33,
-    population: 51000,
-    priority: 1,
-    corridor: "Elevated bypass corridor",
-    equipment: "Heavy waterlogging equipment",
-  },
-  {
-    city: "Muzaffarpur",
-    state: "Bihar",
-    rainfall: 68.0,
-    nwp: 59.0,
-    probability: 68.2,
-    population: 41000,
-    priority: 1,
-    corridor: "Elevated bypass corridor",
-    equipment: "Heavy waterlogging equipment",
-  },
-];
+import { fetchFloodPredictions } from "../../services/api";
 
 function getRisk(probability) {
   if (probability >= 75) return "high";
@@ -109,7 +41,66 @@ function getRiskData(risk) {
 }
 
 export default function Dashboard() {
-  const [selectedStation, setSelectedStation] = useState(stations[2]);
+  const [stations, setStations] = useState([]);
+  const [selectedStation, setSelectedStation] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function loadPredictions() {
+      try {
+        setLoading(true);
+
+        const data = await fetchFloodPredictions();
+
+        setStations(data.stations);
+
+        if (data.stations.length > 0) {
+          const highestRiskStation = [...data.stations].sort(
+            (a, b) => b.probability - a.probability,
+          )[0];
+
+          setSelectedStation(highestRiskStation);
+        }
+
+        setError(null);
+      } catch (err) {
+        console.error("Failed to load flood predictions:", err);
+        setError("Unable to connect to the flood prediction server.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadPredictions();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-black text-white">
+        <div className="text-center">
+          <div className="mb-4 text-3xl">◌</div>
+          <p className="text-sm tracking-widest text-white/60">
+            LOADING FLOOD PREDICTIONS...
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !selectedStation) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-black text-white">
+        <div className="text-center">
+          <p className="text-xl">Unable to load dashboard data</p>
+
+          <p className="mt-2 text-sm text-white/50">
+            {error || "No station data available."}
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   const risk = getRisk(selectedStation.probability);
   const riskData = getRiskData(risk);
