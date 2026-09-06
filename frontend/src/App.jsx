@@ -14,12 +14,24 @@ import {
 
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
-import Dashboard from "./pages/dashboard/Dashboard";
-import LogoLoader from "./components/LogoLoader";
+
+import Dashboard from "./pages/Dashboard";
+import RiskAnalysis from "./pages/RiskAnalysis";
+import WeatherIntelligence from "./pages/WeatherIntelligence";
+import Alerts from "./pages/Alerts";
+import NdrfResponse from "./pages/NdrfResponse";
+import DataSources from "./pages/DataSources";
+import SystemStatus from "./pages/SystemStatus";
+
+import LogoLoader from "./pages/LogoLoader";
+
+import DashboardLayout from "./components/dashboard/DashboardLayout";
+
 
 // ===============================
 // LOADER PAGE
 // ===============================
+
 function LoaderPage() {
   const navigate = useNavigate();
 
@@ -32,9 +44,11 @@ function LoaderPage() {
   );
 }
 
+
 // ===============================
 // PROTECTED ROUTE
 // ===============================
+
 function ProtectedRoute({ children }) {
   return (
     <>
@@ -49,43 +63,163 @@ function ProtectedRoute({ children }) {
   );
 }
 
+
+// ===============================
+// DASHBOARD WRAPPER
+// ===============================
+
+function ProtectedDashboard({ children }) {
+  return (
+    <ProtectedRoute>
+      <DashboardLayout>
+        {children}
+      </DashboardLayout>
+    </ProtectedRoute>
+  );
+}
+
+
 // ===============================
 // APP
 // ===============================
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
 
-        {/* FIRST PAGE */}
+        {/* =========================
+            FIRST PAGE
+        ========================= */}
+
         <Route
           path="/"
           element={<LoaderPage />}
         />
 
-        {/* LOGIN */}
+
+        {/* =========================
+            LOGIN
+        ========================= */}
+
         <Route
           path="/login/*"
           element={<Login />}
         />
 
-        {/* SIGNUP */}
+
+        {/* =========================
+            SIGNUP
+        ========================= */}
+
         <Route
           path="/signup/*"
           element={<Signup />}
         />
 
-        {/* PROTECTED DASHBOARD */}
+
+        {/* =========================
+            DASHBOARD
+        ========================= */}
+
         <Route
           path="/dashboard"
           element={
-            <ProtectedRoute>
+            <ProtectedDashboard>
               <Dashboard />
-            </ProtectedRoute>
+            </ProtectedDashboard>
           }
         />
 
-        {/* FALLBACK */}
+
+        {/* =========================
+            RISK ANALYSIS
+        ========================= */}
+
+        <Route
+          path="/dashboard/risk"
+          element={
+            <ProtectedDashboard>
+              <RiskAnalysis />
+            </ProtectedDashboard>
+          }
+        />
+
+
+        {/* =========================
+            WEATHER INTELLIGENCE
+        ========================= */}
+
+        <Route
+          path="/dashboard/weather"
+          element={
+            <ProtectedDashboard>
+              <WeatherIntelligence />
+            </ProtectedDashboard>
+          }
+        />
+
+
+        {/* =========================
+            ALERTS
+        ========================= */}
+
+        <Route
+          path="/dashboard/alerts"
+          element={
+            <ProtectedDashboard>
+              <Alerts />
+            </ProtectedDashboard>
+          }
+        />
+
+
+        {/* =========================
+            NDRF RESPONSE
+        ========================= */}
+
+        <Route
+          path="/dashboard/ndrf"
+          element={
+            <ProtectedDashboard>
+              <NdrfResponse />
+            </ProtectedDashboard>
+          }
+        />
+
+
+        {/* =========================
+            DATA SOURCES
+        ========================= */}
+
+        <Route
+          path="/dashboard/data-sources"
+          element={
+            <ProtectedDashboard>
+              <DataSources />
+            </ProtectedDashboard>
+          }
+        />
+
+
+        {/* =========================
+            SYSTEM STATUS
+        ========================= */}
+
+        <Route
+          path="/dashboard/system"
+          element={
+            <ProtectedDashboard>
+              <SystemStatus />
+            </ProtectedDashboard>
+          }
+        />
+
+
+        {/* =========================
+            FALLBACK
+        ========================= */}
+
         <Route
           path="*"
           element={<Navigate to="/" replace />}
