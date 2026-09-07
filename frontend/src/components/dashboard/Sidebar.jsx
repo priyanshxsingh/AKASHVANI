@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const mainNavigation = [
+export const mainNavigation = [
   {
     name: "Overview",
     path: "/dashboard",
