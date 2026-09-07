@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useClerk, useUser } from "@clerk/clerk-react";
+import { NavLink } from "react-router-dom";
+import { mainNavigation } from "../../config/navigation";
 
 export default function DashboardHeader() {
   const { user } = useUser();
@@ -14,22 +16,22 @@ export default function DashboardHeader() {
   };
 
   return (
-    <header className="mb-12 flex items-center justify-between">
+    <header className="sticky top-0 z-50 mb-12 py-4 flex items-center justify-between bg-black/40 backdrop-blur-lg border-b border-white/5 -mx-4 px-4 sm:-mx-8 sm:px-8">
 
       {/* ================= LEFT ================= */}
 
       <div className="flex items-center gap-4">
 
-        <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/20 bg-white/10 p-2 backdrop-blur-xl">
+        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full overflow-hidden border border-white/20 bg-white/10 backdrop-blur-xl">
           <img
             src="/akashvani-logo.png"
             alt="Akashvani"
-            className="h-full w-full object-contain"
+            className="h-full w-full rounded-full object-cover"
           />
         </div>
 
         <div>
-          <h1 className="text-lg font-semibold tracking-[3px]">
+          <h1 className="text-lg font-semibold tracking-[3px] text-[#d2a565]">
             AKASHVANI
           </h1>
 
@@ -39,6 +41,29 @@ export default function DashboardHeader() {
         </div>
 
       </div>
+
+
+      {/* ================= CENTER (NAVIGATION) ================= */}
+
+      <nav className="hidden lg:flex items-center gap-1 rounded-full border border-white/10 bg-white/[0.03] px-1.5 py-1.5 backdrop-blur-md shadow-lg">
+        {mainNavigation.map((item) => (
+          <NavLink
+            key={item.path}
+            to={item.path}
+            end={item.path === "/dashboard"}
+            className={({ isActive }) =>
+              [
+                "rounded-full px-4 py-2 text-xs font-medium tracking-wide transition-all",
+                isActive
+                  ? "border border-white/10 bg-white/10 text-[#d2a565] shadow-sm"
+                  : "border border-transparent text-white/50 hover:bg-white/5 hover:text-white",
+              ].join(" ")
+            }
+          >
+            {item.name}
+          </NavLink>
+        ))}
+      </nav>
 
 
       {/* ================= RIGHT ================= */}
