@@ -402,7 +402,7 @@ export default function Dashboard() {
           <section className="mt-20">
             <div className="mb-5 flex items-end justify-between">
               <div>
-                <p className="text-[10px] tracking-[3px] text-white/40">
+                <p className="text-[10px] tracking-[3px] text-[#d2a565]">
                   MONITORING NETWORK
                 </p>
 
@@ -441,7 +441,7 @@ export default function Dashboard() {
             <div className="overflow-hidden rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-2xl">
               <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
                 <div>
-                  <p className="text-[10px] tracking-[3px] text-white/40">
+                  <p className="text-[10px] tracking-[3px] text-[#d2a565]">
                     SELECTED LOCATION
                   </p>
 
@@ -539,7 +539,7 @@ export default function Dashboard() {
           {alerts.length > 0 && (
             <section className="mt-20">
               <div className="mb-5">
-                <p className="text-[10px] tracking-[3px] text-white/40">
+                <p className="text-[10px] tracking-[3px] text-[#d2a565]">
                   EARLY WARNING NETWORK
                 </p>
 
@@ -560,7 +560,7 @@ export default function Dashboard() {
 
           <section className="mt-20">
             <div className="mb-5">
-              <p className="text-[10px] tracking-[3px] text-white/40">
+              <p className="text-[10px] tracking-[3px] text-[#d2a565]">
                 RESPONSE COORDINATION
               </p>
 

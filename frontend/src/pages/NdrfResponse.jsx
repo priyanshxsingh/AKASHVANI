@@ -507,9 +507,9 @@ export default function NdrfResponse() {
 
               <div className="mb-3 flex items-center gap-2">
 
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-white/70" />
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#d2a565]" />
 
-                <p className="text-[10px] uppercase tracking-[3px] text-white/40">
+                <p className="text-[10px] uppercase tracking-[3px] text-[#d2a565]">
                   Emergency Operations
                 </p>
 
@@ -528,9 +528,9 @@ export default function NdrfResponse() {
 
             </div>
 
-            <div className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 backdrop-blur-xl">
+            <div className="rounded-full border border-[#d2a565]/20 bg-[#d2a565]/10 px-4 py-2 backdrop-blur-xl">
 
-              <span className="text-[9px] uppercase tracking-[2px] text-white/45">
+              <span className="text-[9px] uppercase tracking-[2px] text-[#d2a565]">
                 {counts.total} deployment zones
               </span>
 

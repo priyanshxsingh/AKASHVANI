@@ -483,7 +483,7 @@ export default function Alerts() {
 
                 <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-400" />
 
-                <p className="text-[10px] uppercase tracking-[3px] text-white/40">
+                <p className="text-[10px] uppercase tracking-[3px] text-[#d2a565]">
                   Emergency Monitoring
                 </p>
 
@@ -501,9 +501,9 @@ export default function Alerts() {
 
             </div>
 
-            <div className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 backdrop-blur-xl">
+            <div className="rounded-full border border-[#d2a565]/20 bg-[#d2a565]/10 px-4 py-2 backdrop-blur-xl">
 
-              <span className="text-[9px] uppercase tracking-[2px] text-white/45">
+              <span className="text-[9px] uppercase tracking-[2px] text-[#d2a565]">
                 {counts.total} active alerts
               </span>
 
@@ -571,7 +571,7 @@ export default function Alerts() {
                   }
                   className={`rounded-full border px-4 py-2 text-[9px] uppercase tracking-[1.5px] transition ${
                     active
-                      ? "border-white/20 bg-white/15 text-white"
+                      ? "border-[#d2a565]/50 bg-[#d2a565]/20 text-[#d2a565]"
                       : "border-white/10 bg-white/[0.04] text-white/40 hover:bg-white/[0.08]"
                   }`}
                 >

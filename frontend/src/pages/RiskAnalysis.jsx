@@ -168,7 +168,7 @@ export default function RiskAnalysis() {
             <div className="flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-red-400" />
 
-              <p className="text-[10px] tracking-[3px] text-white/50">
+              <p className="text-[10px] tracking-[3px] text-[#d2a565]">
                 RISK INTELLIGENCE
               </p>
             </div>
