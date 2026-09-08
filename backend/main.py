@@ -27,7 +27,7 @@ load_dotenv()
 
 from backend.config import settings
 
-from schemas import (
+from backend.schemas import (
     HealthResponse,
     FloodPredictionResponse,
     RainfallResponse,
@@ -40,7 +40,7 @@ from schemas import (
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from services.ml_service import (
+from backend.services.ml_service import (
     get_model_features,
     get_all_fused_data,
     get_fused_data_for_city,
