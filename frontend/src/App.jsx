@@ -14,24 +14,17 @@ import {
 
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
-
 import Dashboard from "./pages/Dashboard";
 import RiskAnalysis from "./pages/RiskAnalysis";
 import WeatherIntelligence from "./pages/WeatherIntelligence";
 import Alerts from "./pages/Alerts";
 import NdrfResponse from "./pages/NdrfResponse";
-import DataSources from "./pages/DataSources";
-import SystemStatus from "./pages/SystemStatus";
-
 import LogoLoader from "./pages/LogoLoader";
-
 import DashboardLayout from "./components/dashboard/DashboardLayout";
-
 
 // ===============================
 // LOADER PAGE
 // ===============================
-
 function LoaderPage() {
   const navigate = useNavigate();
 
@@ -44,11 +37,9 @@ function LoaderPage() {
   );
 }
 
-
 // ===============================
 // PROTECTED ROUTE
 // ===============================
-
 function ProtectedRoute({ children }) {
   return (
     <>
@@ -63,11 +54,9 @@ function ProtectedRoute({ children }) {
   );
 }
 
-
 // ===============================
 // DASHBOARD WRAPPER
 // ===============================
-
 function ProtectedDashboard({ children }) {
   return (
     <ProtectedRoute>
@@ -78,11 +67,9 @@ function ProtectedDashboard({ children }) {
   );
 }
 
-
 // ===============================
 // APP
 // ===============================
-
 function App() {
   return (
     <BrowserRouter>
@@ -91,37 +78,30 @@ function App() {
         {/* =========================
             FIRST PAGE
         ========================= */}
-
         <Route
           path="/"
           element={<LoaderPage />}
         />
 
-
         {/* =========================
             LOGIN
         ========================= */}
-
         <Route
           path="/login/*"
           element={<Login />}
         />
 
-
         {/* =========================
             SIGNUP
         ========================= */}
-
         <Route
           path="/signup/*"
           element={<Signup />}
         />
 
-
         {/* =========================
             DASHBOARD
         ========================= */}
-
         <Route
           path="/dashboard"
           element={
@@ -131,11 +111,9 @@ function App() {
           }
         />
 
-
         {/* =========================
             RISK ANALYSIS
         ========================= */}
-
         <Route
           path="/dashboard/risk"
           element={
@@ -145,11 +123,9 @@ function App() {
           }
         />
 
-
         {/* =========================
             WEATHER INTELLIGENCE
         ========================= */}
-
         <Route
           path="/dashboard/weather"
           element={
@@ -159,11 +135,9 @@ function App() {
           }
         />
 
-
         {/* =========================
             ALERTS
         ========================= */}
-
         <Route
           path="/dashboard/alerts"
           element={
@@ -173,11 +147,9 @@ function App() {
           }
         />
 
-
         {/* =========================
             NDRF RESPONSE
         ========================= */}
-
         <Route
           path="/dashboard/ndrf"
           element={
@@ -187,39 +159,9 @@ function App() {
           }
         />
 
-
-        {/* =========================
-            DATA SOURCES
-        ========================= */}
-
-        <Route
-          path="/dashboard/data-sources"
-          element={
-            <ProtectedDashboard>
-              <DataSources />
-            </ProtectedDashboard>
-          }
-        />
-
-
-        {/* =========================
-            SYSTEM STATUS
-        ========================= */}
-
-        <Route
-          path="/dashboard/system"
-          element={
-            <ProtectedDashboard>
-              <SystemStatus />
-            </ProtectedDashboard>
-          }
-        />
-
-
         {/* =========================
             FALLBACK
         ========================= */}
-
         <Route
           path="*"
           element={<Navigate to="/" replace />}

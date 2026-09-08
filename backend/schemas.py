@@ -5,8 +5,18 @@ from typing import List
 class StationPrediction(BaseModel):
     city: str
     state: str
+
     rainfall: float
     nwp: float
+
+    rainfall_1h: float
+    rainfall_3h: float
+    rainfall_6h: float
+
+    temperature: float
+    wind: float
+    pressure: float
+
     probability: float
     population: int
     priority: int

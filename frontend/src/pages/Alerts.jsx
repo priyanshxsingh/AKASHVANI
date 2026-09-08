@@ -93,7 +93,7 @@ function AlertSummaryCard({
   description,
 }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/[0.07] p-5 backdrop-blur-xl transition duration-300 hover:bg-white/[0.1]">
+    <div className="rounded-3xl border border-white/10 bg-white/[0.07] p-5 backdrop-blur-xl transition duration-300 hover:bg-white/10">
       <p className="text-[10px] uppercase tracking-[2px] text-white/40">
         {label}
       </p>
@@ -122,7 +122,7 @@ function AlertCard({ alert }) {
 
   return (
     <div
-      className={`rounded-3xl border ${style.border} bg-white/[0.07] p-6 backdrop-blur-xl transition duration-300 hover:bg-white/[0.1]`}
+      className={`rounded-3xl border ${style.border} bg-white/[0.07] p-6 backdrop-blur-xl transition duration-300 hover:bg-white/10`}
     >
       {/* TOP */}
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
@@ -190,7 +190,7 @@ function AlertCard({ alert }) {
       {/* BOTTOM DATA */}
       <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
 
-        <div className="rounded-2xl border border-white/5 bg-white/[0.04] p-4">
+        <div className="rounded-2xl border border-white/5 bg-white/4 p-4">
 
           <p className="text-[9px] uppercase tracking-[1.5px] text-white/25">
             Population At Risk
@@ -208,7 +208,7 @@ function AlertCard({ alert }) {
 
         </div>
 
-        <div className="rounded-2xl border border-white/5 bg-white/[0.04] p-4">
+        <div className="rounded-2xl border border-white/5 bg-white/4 p-4">
 
           <p className="text-[9px] uppercase tracking-[1.5px] text-white/25">
             Response Priority
@@ -572,7 +572,7 @@ export default function Alerts() {
                   className={`rounded-full border px-4 py-2 text-[9px] uppercase tracking-[1.5px] transition ${
                     active
                       ? "border-[#d2a565]/50 bg-[#d2a565]/20 text-[#d2a565]"
-                      : "border-white/10 bg-white/[0.04] text-white/40 hover:bg-white/[0.08]"
+                      : "border-white/10 bg-white/4 text-white/40 hover:bg-white/8"
                   }`}
                 >
                   {level}
@@ -627,7 +627,7 @@ export default function Alerts() {
 
           ) : (
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-12 text-center backdrop-blur-xl">
+            <div className="rounded-3xl border border-white/10 bg-white/6 p-12 text-center backdrop-blur-xl">
 
               <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-green-300/10 bg-green-500/10 text-xl">
                 ✓
@@ -654,7 +654,7 @@ export default function Alerts() {
 
         <section className="mt-8">
 
-          <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl">
+          <div className="rounded-3xl border border-white/10 bg-white/6 p-6 backdrop-blur-xl">
 
             <p className="text-[10px] uppercase tracking-[3px] text-white/30">
               Operational Interpretation

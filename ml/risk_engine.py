@@ -40,8 +40,20 @@ def build_station_payload(fusion_row: dict, probability: float) -> dict:
     return {
         "city": fusion_row["city"],
         "state": fusion_row["state"],
+
+        # Existing values
         "rainfall": fusion_row["Satellite Precipitation (mm)"],
         "nwp": fusion_row["NWP Rainfall Forecast 3h"],
+
+        # New forecast / weather values
+        "rainfall_1h": fusion_row["NWP Rainfall Forecast 1h"],
+        "rainfall_3h": fusion_row["NWP Rainfall Forecast 3h"],
+        "rainfall_6h": fusion_row["NWP Rainfall Forecast 6h"],
+        "temperature": fusion_row["NWP Temperature Forecast (°C)"],
+        "wind": fusion_row["NWP Wind Forecast (m/s)"],
+        "pressure": fusion_row["NWP Pressure Forecast (Pa)"],
+
+        # Risk / response
         "probability": probability,
         "population": fusion_row["population"],
         "priority": tactical["priority"],

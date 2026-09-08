@@ -48,3 +48,4 @@ def predict_all_stations():
         predict_station(station)
         for station in fused
     ]
+ 

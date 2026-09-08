@@ -24,7 +24,7 @@ function BottomNavigation() {
                 className={[
                   "flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-xl text-lg transition-all",
                   isActive
-                    ? "bg-white/[0.12] text-white shadow-[0_0_12px_rgba(255,255,255,0.1)]"
+                    ? "bg-white/12 text-white shadow-[0_0_12px_rgba(255,255,255,0.1)]"
                     : "bg-transparent",
                 ].join(" ")}
               >

@@ -46,7 +46,7 @@ function WeatherMetric({
   description,
 }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/[0.07] p-5 backdrop-blur-xl transition duration-300 hover:bg-white/[0.1]">
+    <div className="rounded-3xl border border-white/10 bg-white/[0.07] p-5 backdrop-blur-xl transition duration-300 hover:bg-white/10">
       <p className="text-[10px] uppercase tracking-[2px] text-white/40">
         {label}
       </p>
@@ -76,7 +76,7 @@ function WeatherMetric({
 
 function SourceBadge({ children }) {
   return (
-    <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-[9px] uppercase tracking-[1.5px] text-white/50">
+    <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-[9px] uppercase tracking-[1.5px] text-white/50">
       {children}
     </span>
   );
@@ -137,7 +137,7 @@ function WeatherRow({ station }) {
 
       {/* STATUS */}
       <div className="md:text-right">
-        <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-[9px] uppercase tracking-[1.5px] text-white/60">
+        <span className="rounded-full border border-white/10 bg-white/6 px-3 py-1 text-[9px] uppercase tracking-[1.5px] text-white/60">
           {getRainfallStatus(rainfall)}
         </span>
       </div>
@@ -576,7 +576,7 @@ export default function WeatherIntelligence() {
 
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/[0.06] px-5 backdrop-blur-xl">
+          <div className="rounded-3xl border border-white/10 bg-white/6 px-5 backdrop-blur-xl">
 
             <div className="hidden grid-cols-[1.4fr_1fr_1fr_1fr] border-b border-white/10 py-4 text-[9px] uppercase tracking-[1.5px] text-white/25 md:grid">
 
@@ -640,7 +640,7 @@ export default function WeatherIntelligence() {
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl">
+            <div className="rounded-3xl border border-white/10 bg-white/6 p-6 backdrop-blur-xl">
 
               <SourceBadge>
                 Satellite
@@ -659,7 +659,7 @@ export default function WeatherIntelligence() {
 
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl">
+            <div className="rounded-3xl border border-white/10 bg-white/6 p-6 backdrop-blur-xl">
 
               <SourceBadge>
                 Radar
@@ -678,7 +678,7 @@ export default function WeatherIntelligence() {
 
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl">
+            <div className="rounded-3xl border border-white/10 bg-white/6 p-6 backdrop-blur-xl">
 
               <SourceBadge>
                 NWP
@@ -709,7 +709,7 @@ export default function WeatherIntelligence() {
 
           <section className="mt-8">
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl">
+            <div className="rounded-3xl border border-white/10 bg-white/6 p-6 backdrop-blur-xl">
 
               <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
 

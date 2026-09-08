@@ -96,7 +96,7 @@ function ResponseStat({
   description,
 }) {
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/[0.07] p-5 backdrop-blur-xl transition duration-300 hover:bg-white/[0.1]">
+    <div className="rounded-3xl border border-white/10 bg-white/[0.07] p-5 backdrop-blur-xl transition duration-300 hover:bg-white/10">
 
       <p className="text-[10px] uppercase tracking-[2px] text-white/40">
         {label}
@@ -130,14 +130,14 @@ function DeploymentCard({ deployment }) {
 
   return (
     <div
-      className="rounded-3xl border border-white/10 bg-white/[0.07] p-6 backdrop-blur-xl transition duration-300 hover:bg-white/[0.1]"
+      className="rounded-3xl border border-white/10 bg-white/[0.07] p-6 backdrop-blur-xl transition duration-300 hover:bg-white/10"
     >
       {/* HEADER */}
       <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
 
         <div className="flex items-start gap-4">
 
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.06]">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/6">
 
             <span
               className={`h-2.5 w-2.5 rounded-full ${priorityStyle.dot}`}
@@ -186,7 +186,7 @@ function DeploymentCard({ deployment }) {
       {/* DEPLOYMENT DETAILS */}
       <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
 
-        <div className="rounded-2xl border border-white/5 bg-white/[0.04] p-4">
+        <div className="rounded-2xl border border-white/5 bg-white/4 p-4">
 
           <p className="text-[9px] uppercase tracking-[1.5px] text-white/25">
             Population
@@ -204,7 +204,7 @@ function DeploymentCard({ deployment }) {
 
         </div>
 
-        <div className="rounded-2xl border border-white/5 bg-white/[0.04] p-4">
+        <div className="rounded-2xl border border-white/5 bg-white/4 p-4">
 
           <p className="text-[9px] uppercase tracking-[1.5px] text-white/25">
             Road Status
@@ -227,7 +227,7 @@ function DeploymentCard({ deployment }) {
       </div>
 
       {/* CORRIDOR */}
-      <div className="mt-3 rounded-2xl border border-white/5 bg-white/[0.04] p-4">
+      <div className="mt-3 rounded-2xl border border-white/5 bg-white/4 p-4">
 
         <p className="text-[9px] uppercase tracking-[1.5px] text-white/25">
           Priority Corridor
@@ -240,7 +240,7 @@ function DeploymentCard({ deployment }) {
       </div>
 
       {/* EQUIPMENT */}
-      <div className="mt-3 rounded-2xl border border-white/5 bg-white/[0.04] p-4">
+      <div className="mt-3 rounded-2xl border border-white/5 bg-white/4 p-4">
 
         <p className="text-[9px] uppercase tracking-[1.5px] text-white/25">
           Recommended Equipment
@@ -601,7 +601,7 @@ export default function NdrfResponse() {
                   className={`rounded-full border px-4 py-2 text-[9px] uppercase tracking-[1.5px] transition ${
                     active
                       ? "border-white/20 bg-white/15 text-white"
-                      : "border-white/10 bg-white/[0.04] text-white/40 hover:bg-white/[0.08]"
+                      : "border-white/10 bg-white/4 text-white/40 hover:bg-white/8"
                   }`}
                 >
                   {level}
@@ -656,9 +656,9 @@ export default function NdrfResponse() {
 
           ) : (
 
-            <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-12 text-center backdrop-blur-xl">
+            <div className="rounded-3xl border border-white/10 bg-white/6 p-12 text-center backdrop-blur-xl">
 
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-xl">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xl">
                 —
               </div>
 
@@ -697,7 +697,7 @@ export default function NdrfResponse() {
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
 
-            <div className="rounded-3xl border border-red-300/10 bg-white/[0.06] p-6 backdrop-blur-xl">
+            <div className="rounded-3xl border border-red-300/10 bg-white/6 p-6 backdrop-blur-xl">
 
               <div className="flex items-center gap-3">
 
@@ -718,7 +718,7 @@ export default function NdrfResponse() {
 
             </div>
 
-            <div className="rounded-3xl border border-orange-300/10 bg-white/[0.06] p-6 backdrop-blur-xl">
+            <div className="rounded-3xl border border-orange-300/10 bg-white/6 p-6 backdrop-blur-xl">
 
               <div className="flex items-center gap-3">
 
@@ -738,7 +738,7 @@ export default function NdrfResponse() {
 
             </div>
 
-            <div className="rounded-3xl border border-yellow-300/10 bg-white/[0.06] p-6 backdrop-blur-xl">
+            <div className="rounded-3xl border border-yellow-300/10 bg-white/6 p-6 backdrop-blur-xl">
 
               <div className="flex items-center gap-3">
 
@@ -768,7 +768,7 @@ export default function NdrfResponse() {
 
         <section className="mt-8">
 
-          <div className="rounded-3xl border border-white/10 bg-white/[0.06] p-6 backdrop-blur-xl">
+          <div className="rounded-3xl border border-white/10 bg-white/6 p-6 backdrop-blur-xl">
 
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 
@@ -787,7 +787,7 @@ export default function NdrfResponse() {
 
               </div>
 
-              <div className="rounded-full border border-white/10 bg-white/[0.05] px-4 py-2">
+              <div className="rounded-full border border-white/10 bg-white/5 px-4 py-2">
 
                 <span className="text-[9px] uppercase tracking-[1.5px] text-white/40">
                   Operational View

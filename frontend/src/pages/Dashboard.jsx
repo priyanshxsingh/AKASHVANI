@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 import StationCard from "../components/dashboard/StationCard";
 import StatCard from "../components/dashboard/StatCard";
@@ -213,13 +213,6 @@ export default function Dashboard() {
     (alert) => alert.severity === "CRITICAL",
   );
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>{error}</div>;
-  }
 
   return (
     <div

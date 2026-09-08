@@ -13,8 +13,7 @@ import { fetchFloodPredictions } from "../services/api";
 
 export default function RiskAnalysis() {
   const [stations, setStations] = useState([]);
-  const [selectedStation, setSelectedStation] =
-    useState(null);
+  const [selectedStation, setSelectedStation] = useState(null);
 
   const [filter, setFilter] = useState("ALL");
 
@@ -41,10 +40,7 @@ export default function RiskAnalysis() {
           setSelectedStation(highestRiskStation);
         }
       } catch (err) {
-        console.error(
-          "Failed to load risk analysis:",
-          err,
-        );
+        console.error("Failed to load risk analysis:", err);
 
         setError(
           "Unable to connect to the flood prediction server.",
@@ -110,9 +106,7 @@ export default function RiskAnalysis() {
     (a, b) => b.probability - a.probability,
   )[0];
 
-  const risk = getRisk(
-    highestRiskStation.probability,
-  );
+  const risk = getRisk(highestRiskStation.probability);
 
   const riskData = getRiskData(risk);
 
@@ -153,6 +147,7 @@ export default function RiskAnalysis() {
       probability={highestRiskStation.probability}
     >
       <div className="mx-auto w-[92%] max-w-7xl py-6">
+
         {/* =================================================
             HEADER
         ================================================= */}
@@ -190,7 +185,9 @@ export default function RiskAnalysis() {
 
         <section className="grid items-center gap-6 lg:grid-cols-[1.4fr_0.6fr]">
           <div className="rounded-3xl border border-white/15 bg-white/10 p-7 backdrop-blur-2xl">
+
             <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-start">
+
               <div>
                 <p className="text-[9px] tracking-[3px] text-white/40">
                   HIGHEST RISK LOCATION
@@ -214,10 +211,13 @@ export default function RiskAnalysis() {
 
                 {riskData.label}
               </div>
+
             </div>
 
             <div className="mt-8">
+
               <div className="flex items-end gap-2">
+
                 <span className="text-7xl font-semibold tracking-[-5px] sm:text-8xl">
                   {Number(
                     highestRiskStation.probability,
@@ -227,17 +227,21 @@ export default function RiskAnalysis() {
                 <span className="mb-3 text-3xl text-white/40">
                   %
                 </span>
+
               </div>
 
               <p className="mt-1 text-xs text-white/40">
                 Predicted flood probability
               </p>
+
             </div>
 
             {/* Probability bar */}
 
             <div className="mt-7">
+
               <div className="mb-2 flex justify-between text-[9px] tracking-widest text-white/35">
+
                 <span>RISK LEVEL</span>
 
                 <span>
@@ -246,9 +250,11 @@ export default function RiskAnalysis() {
                   ).toFixed(1)}
                   %
                 </span>
+
               </div>
 
               <div className="h-2 overflow-hidden rounded-full bg-black/30">
+
                 <div
                   className={`h-full rounded-full transition-all duration-700 ${
                     risk === "high"
@@ -259,16 +265,27 @@ export default function RiskAnalysis() {
                   }`}
                   style={{
                     width: `${Math.min(
-                      highestRiskStation.probability,
+                      Math.max(
+                        Number(
+                          highestRiskStation.probability,
+                        ) || 0,
+                        0,
+                      ),
                       100,
                     )}%`,
                   }}
                 />
+
               </div>
+
             </div>
+
           </div>
 
+          {/* Risk count cards */}
+
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+
             <StatCard
               icon="⚠"
               title="High Risk"
@@ -286,7 +303,96 @@ export default function RiskAnalysis() {
               title="Low Risk"
               value={lowRiskStations.length}
             />
+
           </div>
+
+        </section>
+
+         {/* =================================================
+            WEATHER FORECAST
+        ================================================= */}
+
+        <section className="mt-16">
+
+          <div className="mb-5">
+
+            <p className="text-[10px] tracking-[3px] text-white/40">
+              WEATHER FORECAST
+            </p>
+
+            <h2 className="mt-1 text-2xl font-medium">
+              Forecast Conditions
+            </h2>
+
+            <p className="mt-1 text-xs text-white/35">
+              Forecast values for the highest-risk location
+            </p>
+
+          </div>
+
+          <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/10 backdrop-blur-2xl">
+
+            {/* Forecast timeline */}
+
+            <div className="grid grid-cols-3 divide-x divide-white/10">
+
+              <ForecastValue
+                title="1 HOUR"
+                label="RAINFALL"
+                value={`${Number(
+                  highestRiskStation.rainfall_1h || 0,
+                ).toFixed(1)} mm`}
+              />
+
+              <ForecastValue
+                title="3 HOURS"
+                label="RAINFALL"
+                value={`${Number(
+                  highestRiskStation.rainfall_3h || 0,
+                ).toFixed(1)} mm`}
+              />
+
+              <ForecastValue
+                title="6 HOURS"
+                label="RAINFALL"
+                value={`${Number(
+                  highestRiskStation.rainfall_6h || 0,
+                ).toFixed(1)} mm`}
+              />
+
+            </div>
+
+            {/* Atmospheric conditions */}
+
+            <div className="grid grid-cols-3 gap-3 border-t border-white/10 p-5">
+
+              <ForecastValue
+                title="TEMPERATURE"
+                value={`${Number(
+                  highestRiskStation.temperature || 0,
+                ).toFixed(1)} °C`}
+              />
+
+              <ForecastValue
+                title="WIND"
+                value={`${Number(
+                  highestRiskStation.wind || 0,
+                ).toFixed(1)} m/s`}
+              />
+
+              <ForecastValue
+                title="PRESSURE"
+                value={`${(
+                  Number(
+                    highestRiskStation.pressure || 0,
+                  ) / 100
+                ).toFixed(1)} hPa`}
+              />
+
+            </div>
+
+          </div>
+
         </section>
 
         {/* =================================================
@@ -294,6 +400,7 @@ export default function RiskAnalysis() {
         ================================================= */}
 
         <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
           <MetricCard
             label="MONITORED STATIONS"
             value={stations.length}
@@ -324,6 +431,7 @@ export default function RiskAnalysis() {
               .toLocaleString()}
             description="People across stations"
           />
+
         </section>
 
         {/* =================================================
@@ -331,7 +439,9 @@ export default function RiskAnalysis() {
         ================================================= */}
 
         <section className="mt-16">
+
           <div className="mb-5">
+
             <p className="text-[10px] tracking-[3px] text-white/40">
               NETWORK DISTRIBUTION
             </p>
@@ -344,9 +454,11 @@ export default function RiskAnalysis() {
               Classification based on predicted flood
               probability
             </p>
+
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
+
             <DistributionCard
               title="HIGH RISK"
               count={highRiskStations.length}
@@ -370,7 +482,9 @@ export default function RiskAnalysis() {
               description="Normal conditions"
               type="low"
             />
+
           </div>
+
         </section>
 
         {/* =================================================
@@ -378,8 +492,11 @@ export default function RiskAnalysis() {
         ================================================= */}
 
         <section className="mt-16">
+
           <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+
             <div>
+
               <p className="text-[10px] tracking-[3px] text-white/40">
                 STATION NETWORK
               </p>
@@ -387,9 +504,11 @@ export default function RiskAnalysis() {
               <h2 className="mt-1 text-2xl font-medium">
                 Risk by Location
               </h2>
+
             </div>
 
             <div className="flex flex-wrap gap-2">
+
               {["ALL", "HIGH", "MODERATE", "LOW"].map(
                 (option) => (
                   <button
@@ -407,10 +526,13 @@ export default function RiskAnalysis() {
                   </button>
                 ),
               )}
+
             </div>
+
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+
             {filteredStations.map((station) => (
               <StationCard
                 key={station.city}
@@ -424,15 +546,19 @@ export default function RiskAnalysis() {
                 }
               />
             ))}
+
           </div>
 
           {filteredStations.length === 0 && (
             <div className="rounded-3xl border border-white/10 bg-white/5 p-10 text-center backdrop-blur-xl">
+
               <p className="text-sm text-white/40">
                 No stations match this risk category.
               </p>
+
             </div>
           )}
+
         </section>
 
         {/* =================================================
@@ -440,9 +566,13 @@ export default function RiskAnalysis() {
         ================================================= */}
 
         <section className="mt-16">
+
           <div className="rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-2xl">
+
             <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
+
               <div>
+
                 <p className="text-[10px] tracking-[3px] text-white/40">
                   SELECTED ANALYSIS
                 </p>
@@ -451,6 +581,7 @@ export default function RiskAnalysis() {
                   {selectedStation.city},{" "}
                   {selectedStation.state}
                 </h2>
+
               </div>
 
               <RiskBadge
@@ -458,9 +589,11 @@ export default function RiskAnalysis() {
                   selectedStation.probability
                 }
               />
+
             </div>
 
             <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+
               <InfoBox
                 title="FLOOD PROBABILITY"
                 value={`${Number(
@@ -484,8 +617,11 @@ export default function RiskAnalysis() {
                   selectedStation.population,
                 ).toLocaleString()}
               />
+
             </div>
+
           </div>
+
         </section>
 
         {/* =================================================
@@ -493,6 +629,7 @@ export default function RiskAnalysis() {
         ================================================= */}
 
         <footer className="mt-20 flex flex-col justify-between gap-3 border-t border-white/15 py-6 text-[9px] tracking-widest text-white/35 sm:flex-row">
+
           <span className="font-semibold tracking-[3px]">
             AKASHVANI
           </span>
@@ -504,7 +641,9 @@ export default function RiskAnalysis() {
           <span>
             MONITORING · {stations.length} STATIONS
           </span>
+
         </footer>
+
       </div>
     </RiskBackground>
   );
@@ -521,6 +660,7 @@ function MetricCard({
 }) {
   return (
     <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-2xl transition duration-300 hover:-translate-y-1 hover:bg-white/15">
+
       <p className="text-[9px] tracking-[2px] text-white/40">
         {label}
       </p>
@@ -532,6 +672,7 @@ function MetricCard({
       <p className="mt-1 text-[10px] text-white/35">
         {description}
       </p>
+
     </div>
   );
 }
@@ -575,7 +716,9 @@ function DistributionCard({
     <div
       className={`rounded-3xl border p-6 backdrop-blur-2xl ${style.border} ${style.background}`}
     >
+
       <div className="flex items-center justify-between">
+
         <p className="text-[9px] tracking-[2px] text-white/45">
           {title}
         </p>
@@ -583,9 +726,11 @@ function DistributionCard({
         <span className={`text-sm ${style.text}`}>
           {count}
         </span>
+
       </div>
 
       <div className="mt-5 flex items-end gap-2">
+
         <span className="text-4xl font-medium">
           {percentage.toFixed(0)}
         </span>
@@ -593,6 +738,7 @@ function DistributionCard({
         <span className="mb-1 text-sm text-white/35">
           %
         </span>
+
       </div>
 
       <p className="mt-1 text-[10px] text-white/35">
@@ -600,13 +746,16 @@ function DistributionCard({
       </p>
 
       <div className="mt-5 h-1.5 overflow-hidden rounded-full bg-black/25">
+
         <div
           className={`h-full rounded-full ${style.bar}`}
           style={{
             width: `${percentage}%`,
           }}
         />
+
       </div>
+
     </div>
   );
 }
@@ -619,8 +768,39 @@ function RiskBadge({ probability }) {
     <div
       className={`w-fit rounded-full border px-4 py-2 text-[10px] tracking-widest backdrop-blur-xl ${data.badge}`}
     >
-      <span className="mr-2">{data.icon}</span>
+
+      <span className="mr-2">
+        {data.icon}
+      </span>
+
       {data.label}
+
+    </div>
+  );
+}
+
+function ForecastValue({
+  title,
+  value,
+  label,
+}) {
+  return (
+    <div className="px-4 py-5 text-center">
+
+      {label && (
+        <p className="mb-1 text-[9px] tracking-widest text-white/35">
+          {label}
+        </p>
+      )}
+
+      <p className="text-[9px] tracking-[2px] text-white/40">
+        {title}
+      </p>
+
+      <p className="mt-2 text-xl font-medium">
+        {value}
+      </p>
+
     </div>
   );
 }
@@ -628,6 +808,7 @@ function RiskBadge({ probability }) {
 function InfoBox({ title, value }) {
   return (
     <div className="rounded-2xl border border-white/5 bg-black/15 p-4 transition hover:bg-black/25">
+
       <p className="text-[9px] tracking-wider text-white/40">
         {title}
       </p>
@@ -635,6 +816,7 @@ function InfoBox({ title, value }) {
       <p className="mt-2 text-lg font-medium">
         {value}
       </p>
+
     </div>
   );
 }

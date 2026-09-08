@@ -44,6 +44,24 @@ with warnings.catch_warnings():
     warnings.simplefilter("ignore")
     _model = joblib.load(MODEL_PATH)
 
+# Validate model compatibility
+if getattr(_model, "n_features_in_", None) != len(MODEL_FEATURE_ORDER):
+    raise ValueError(
+        f"Model expects {_model.n_features_in_} features, "
+        f"but AKASHVANI expects {len(MODEL_FEATURE_ORDER)}."
+    )
+
+if hasattr(_model, "feature_names_in_"):
+    if list(_model.feature_names_in_) != MODEL_FEATURE_ORDER:
+        raise ValueError(
+            "Model feature names/order do not match MODEL_FEATURE_ORDER."
+        )
+
+if list(_model.classes_) != [0, 1]:
+    raise ValueError(
+        f"Expected model classes [0, 1], got {_model.classes_.tolist()}"
+    )
+
 
 def _vector_from_fusion(fusion_row: dict) -> pd.DataFrame:
     # A one-row DataFrame with matching column names avoids sklearn's
