@@ -143,3 +143,24 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python virtual environments
+venv/
+.venv/
+env/
+.env/
+
+# ML / Python cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Keep trained ML models tracked
+!ml/model/
+!ml/model/*.joblib

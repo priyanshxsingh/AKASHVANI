@@ -25,7 +25,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from config import settings
+from backend.config import settings
 
 from schemas import (
     HealthResponse,
